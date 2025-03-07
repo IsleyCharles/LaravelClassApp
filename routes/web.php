@@ -40,6 +40,11 @@ Route::get('/admin', function() {
 });
 
 Route::get('/send-email', function () {
-    Mail::to('isleycharlesmucai@gmail.com')->send(new MyEmail());
-    return "Email sent successfully!";
+    try {
+        Mail::to('isleycharlesmucai@gmail.com')->send(new MyEmail());
+        return "Email sent successfully!";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
 });
+

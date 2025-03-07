@@ -10,26 +10,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-white text-gray-900">
 
-    <nav class="bg-blue-600 text-white p-4 shadow-md">
+    <!-- Navbar -->
+    <nav class="bg-red-600 text-white p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="/" class="text-xl font-semibold">{{ config('app.name') }}</a>
-            <div class="space-x-4">
-                <a href="/" class="hover:underline">Home</a>
-                <a href="/showMembers" class="hover:underline">Members</a>
-                <a href="/about" class="hover:underline">About</a>
-                <a href="/login" class="hover:underline">Login</a>
-                <a href="/register" class="hover:underline">Register</a>
+            <a href="/" class="text-2xl font-bold tracking-wide hover:text-red-300 transition">{{ config('app.name') }}</a>
+            <div class="space-x-6">
+                <a href="/" class="hover:text-red-300 transition">Home</a>
+                <a href="/showMembers" class="hover:text-red-300 transition">Members</a>
+                <a href="/about" class="hover:text-red-300 transition">About</a>
+                <a href="/login" class="hover:text-red-300 transition">Login</a>
+                <a href="/register" class="bg-white text-red-600 px-4 py-2 rounded-lg shadow hover:bg-red-500 hover:text-white transition">Register</a>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto p-6">
+    <!-- Main Content -->
+    <main class="container mx-auto p-8">
         @yield('content')
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-4 mt-10">
+    <!-- Footer -->
+    <footer class="bg-red-700 text-white text-center p-4 mt-10 shadow-lg">
         &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.
     </footer>
 

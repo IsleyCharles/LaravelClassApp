@@ -16,9 +16,10 @@
                 <h2 class="text-2xl font-bold text-center">Admin Panel</h2>
                 <ul class="mt-6 space-y-3">
                     <li class="py-2 px-4 hover:bg-red-600 rounded transition"><a href="/dashboard">Dashboard</a></li>
-                    <li class="py-2 px-4 hover:bg-red-600 rounded transition"><a href="{{ route('members.index') }}">Members</a></li>
-                    <li class="py-2 px-4 hover:bg-red-600 rounded transition"><a href="#">Users</a></li>
-                    <li class="py-2 px-4 hover:bg-red-600 rounded transition"><a href="#">Settings</a></li>
+                    <li class="py-2 px-4 hover:bg-red-600 rounded transition"><a href="{{ route('members.index') }}">Add Members</a></li>
+                    <li class="py-2 px-4 hover:bg-red-600 rounded transition"><a href="#">About</a></li>
+                    <li class="py-2 px-4 hover:bg-red-600 rounded transition"><a href="{{ route('settings') }}">Settings</a>
+
                 </ul>
             </div>
 

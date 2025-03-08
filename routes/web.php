@@ -6,6 +6,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\SettingsController;
 use App\Mail\MyEmail;
 
 
@@ -47,4 +48,16 @@ Route::get('/send-email', function () {
         return "Error: " . $e->getMessage();
     }
 });
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+    Route::put('/settings/update-profile', [SettingsController::class, 'updateProfile'])->name('settings.updateProfile');
+    Route::put('/settings/update-password', [SettingsController::class, 'updatePassword'])->name('settings.updatePassword');
+    Route::delete('/settings/delete-profile', [SettingsController::class, 'deleteProfile'])->name('settings.deleteProfile');
+});
+
+
+
+
 

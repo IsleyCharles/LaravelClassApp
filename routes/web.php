@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\SettingsController;
 use App\Mail\MyEmail;
+use App\Http\Controllers\BlogController;
 
 
 /*
@@ -21,7 +22,8 @@ use App\Mail\MyEmail;
 |
 */
 
-Route::get('/',[HomeController::class, 'index'] );
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -56,6 +58,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/settings/update-password', [SettingsController::class, 'updatePassword'])->name('settings.updatePassword');
     Route::delete('/settings/delete-profile', [SettingsController::class, 'deleteProfile'])->name('settings.deleteProfile');
 });
+
+Route::resource('blogs', BlogController::class);
+
+
 
 
 

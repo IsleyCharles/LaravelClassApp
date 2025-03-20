@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $members = Member::paginate('5');
+        $members = Member::paginate('10');
         return view('welcome', compact('members'));
     }
 }

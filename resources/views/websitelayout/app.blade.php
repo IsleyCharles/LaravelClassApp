@@ -1,27 +1,27 @@
-@extends('websitelayout.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alumni System</title>
 
-@section('content')
-<div class="max-w-6xl mx-auto p-6">
-    <h1 class="text-4xl font-bold text-red-700 mb-4 text-center">Welcome to the Alumni System</h1>
-    <p class="mb-6 text-gray-700 text-center">
-        Connect, network, and stay updated with your fellow alumni. Our system provides a platform for alumni to stay connected, share experiences, and grow together.
-    </p>
+    <!-- Tailwind CSS -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="font-sans text-gray-900 antialiased bg-gray-100">
 
-    <!-- Add more content here as needed -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Example content blocks -->
-        <div class="bg-white shadow-lg rounded-lg p-6 border border-red-300 transition-transform transform hover:scale-105">
-            <h5 class="text-xl font-semibold text-red-800">Events</h5>
-            <p class="text-gray-700 mt-2">Stay updated with upcoming alumni events and reunions.</p>
+    <!-- Navbar (Optional) -->
+    <nav class="bg-red-600 text-white p-4">
+        <div class="max-w-6xl mx-auto flex justify-between">
+            <a href="{{ url('/') }}" class="text-xl font-bold">Alumni System</a>
+            <a href="{{ route('login') }}" class="hover:underline">Login</a>
         </div>
-        <div class="bg-white shadow-lg rounded-lg p-6 border border-red-300 transition-transform transform hover:scale-105">
-            <h5 class="text-xl font-semibold text-red-800">Networking</h5>
-            <p class="text-gray-700 mt-2">Connect with alumni from various industries and fields.</p>
-        </div>
-        <div class="bg-white shadow-lg rounded-lg p-6 border border-red-300 transition-transform transform hover:scale-105">
-            <h5 class="text-xl font-semibold text-red-800">Resources</h5>
-            <p class="text-gray-700 mt-2">Access exclusive resources and career opportunities.</p>
-        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container mx-auto p-6">
+        @yield('content')
     </div>
-</div>
-@endsection
+
+</body>
+</html>

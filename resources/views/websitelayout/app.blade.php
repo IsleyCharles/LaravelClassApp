@@ -1,3 +1,13 @@
+@if(Auth::check())
+    <a href="{{ route('user.dashboard') }}" class="hover:underline">Dashboard</a>
+    @if(Auth::user()->is_admin)
+        <a href="{{ route('admin.dashboard') }}" class="hover:underline">Admin Panel</a>
+    @endif
+@else
+    <a href="{{ route('login') }}" class="hover:underline">Login</a>
+@endif
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

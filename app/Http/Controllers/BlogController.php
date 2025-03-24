@@ -7,10 +7,11 @@ use App\Models\Blog;
 class BlogController extends Controller
 {
     public function index()
-{
-    $blogs = Blog::paginate(6); // ✅ This returns paginated results (6 per page)
-    return view('blogs.index', compact('blogs'));
-}
+    {
+        $blogs = Blog::with('author')->latest()->paginate(6); // Fetch latest blogs with author
+        return view('blogs.index', compact('blogs'));
+    }
+        
     public function create()
     {
         return view('blogs.create');
@@ -28,17 +29,19 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required',
         ]);
-
+    
         if (!auth()->check()) {
             return redirect()->route('blogs.index')->with('error', 'You must be logged in to post a blog.');
         }
-
+    
         Blog::create([
             'title' => $request->title,
             'content' => $request->content,
             'user_id' => auth()->id(), // Store the authenticated user's ID
+            'author' => auth()->user()->name, // Ensure the author's name is saved
         ]);
-
+    
         return redirect()->route('blogs.index')->with('success', 'Blog post created successfully!');
     }
+    
 }

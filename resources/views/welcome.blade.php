@@ -15,8 +15,8 @@
                 <a href="{{ url('/about') }}" class="hover:underline">About</a>
             </div>
             <div class="hidden md:flex space-x-4">
-                <a href="{{ route('redirect') }}" class="hover:underline">Login</a>
-                <a href="{{ route('register') }}" class="bg-white text-red-600 px-4 py-2 rounded shadow hover:bg-red-200 transition">Register</a>
+                <a href="{{ route('login') }}" class="bg-white text-red-600 px-4 py-2 rounded shadow hover:bg-red-200 transition">Login</a>
+                <a href="{{ route('register') }}" class="bg-red-600 text-white px-4 py-2 rounded shadow hover:bg-red-700 transition">Register</a>
             </div>
         </div>
     </div>

@@ -96,6 +96,9 @@ Route::get('/dashboard', function () {
     return view('users.users', compact('blogs'));
 })->name('user.dashboard');
 
+// Rotes for the events
+Route::resource('events', EventController::class);
+
 // New routes for events, resources, and about
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');

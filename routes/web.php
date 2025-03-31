@@ -8,7 +8,6 @@ use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ResourceController;
-use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyEmail;
@@ -113,7 +112,8 @@ Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
-
+// Routes for the resources
+Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');
 
 
 

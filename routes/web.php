@@ -33,7 +33,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dash
 
 // Logged in user route
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
+    Route::get('/ldashboard', [UserController::class, 'ldashboard'])->name('user.ldashboard');
 });
 
 // Admin dashboard route

@@ -10,6 +10,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyEmail;
 
@@ -27,8 +28,13 @@ use App\Mail\MyEmail;
 // Home route
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// User dashboard route
+// Normal user dashboard route
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
+
+// Logged in user route
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
+});
 
 // Admin dashboard route
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

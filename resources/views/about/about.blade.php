@@ -66,13 +66,26 @@
         @endforeach
     </div>
 
-    <!-- Testimonials -->
-    <div class="bg-white shadow-lg rounded-lg p-6 border border-gray-300 mb-6">
-        <h2 class="text-2xl font-semibold text-red-800 mb-2">What Alumni Say</h2>
-        <p class="italic text-gray-600">"Being part of this alumni network has helped me land my dream job and connect with incredible mentors!"</p>
-        <p class="font-semibold text-gray-700 mt-2">– Jane Doe, Class of 2018</p>
+      <!-- Feedback Section -->
+    <div class="bg-white shadow-md rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold text-red-700 mb-4">What Alumni Say</h2>
+        @forelse($feedbacks as $feedback)
+            <blockquote class="italic text-gray-600 mb-4">
+                "{{ $feedback->content }}"
+            </blockquote>
+            <p class="text-gray-800 font-semibold">
+                – {{ $feedback->user->name ?? 'Anonymous' }}
+            </p>
+        @empty
+            <p class="text-gray-600">No feedback available at the moment.</p>
+        @endforelse
+        <form action="{{ route('feedback.store') }}" method="POST">
+            @csrf
+            <textarea name="feedback" rows="4" class="w-full p-3 border border-gray-300 rounded mb-3" placeholder="Write your feedback here..." required></textarea>
+            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Submit Feedback</button>
+        </form>
     </div>
-
+  
     <!-- Call to Action -->
     <div class="text-center">
         <a href="{{ route('register') }}" class="bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition text-lg font-semibold">

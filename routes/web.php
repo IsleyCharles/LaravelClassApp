@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyEmail;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use App\Http\Controllers\FeedbackController;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| be assigned to the "web" middleware group. Make something great!72\
 |
 */
 
@@ -125,6 +126,14 @@ Route::get('/resources', [ResourceController::class, 'index'])->name('resources.
 
 // Feedback route
 Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [UserController::class, 'ldashboard'])->name('dashboard');
+});
+
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
 
 
 

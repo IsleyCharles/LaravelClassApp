@@ -24,4 +24,9 @@ class AdminController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+
+    public function dashboard()
+    {
+        return view('admin.dashboard'); // Ensure this view exists
+    }
 }

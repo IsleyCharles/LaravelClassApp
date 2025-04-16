@@ -26,9 +26,6 @@
     @endif
 
 <!-- Main Content Area -->
-@extends('layouts.app')
-
-@section('content')
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- Welcome Section -->
     <div class="bg-white shadow-md rounded-lg p-6 mb-6">
@@ -81,6 +78,4 @@
         </form>
     </div>
 </div>
-@endsection
-
 @endsection

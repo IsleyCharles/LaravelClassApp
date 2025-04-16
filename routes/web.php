@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MyEmail;
+use App\Http\Controllers\FeedbackController;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,6 +122,9 @@ Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
 // Routes for the resources
 Route::get('/resources', [ResourceController::class, 'index'])->name('resources.index');
+
+// Feedback route
+Route::post('/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 
 
 
